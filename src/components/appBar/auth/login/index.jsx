@@ -180,7 +180,7 @@ const Login = () => {
           <Typography textAlign="center">
             Don't have an account?{" "}
             <Button
-              href="/signUp"
+              href="/dang-ky"
               sx={{
                 color: "#1565c0",
                 textTransform: "none",

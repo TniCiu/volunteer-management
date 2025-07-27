@@ -8,6 +8,7 @@ import {
   CardContent
 } from "@mui/material";
 import CustomAppBar from "../../index";
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -15,7 +16,7 @@ import "swiper/css/pagination";
 import PhotoCameraFrontIcon from "@mui/icons-material/PhotoCameraFront";
 import Footer from "../../../footer/index.jsx";
 
-const PRIMARY_BLUE = "#1976d2";
+const PRIMARY_BLUE = "#1a237e";
 
 const gallerySlides = [
   {
@@ -41,11 +42,14 @@ const gallerySlides = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+  
   return (
     <Box sx={{ bgcolor: "#fff", minHeight: "100vh" }}>
       <CustomAppBar
         logo="https://i.imgur.com/2yaf2wb.png"
         title="Tình Nguyện Viên"
+        onActivityClick={() => navigate("/hoat-dong")}
       />
 
       {/* Banner */}
@@ -88,17 +92,18 @@ const Home = () => {
             Lan tỏa yêu thương – Kết nối cộng đồng
           </Typography>
           <Button
+          href="/hoat-dong"
             variant="contained"
             size="large"
             sx={{
-              background: "#fff",
-              color: PRIMARY_BLUE,
+              background: "#ffd700",
+              color: "#1a237e",
               fontWeight: "bold",
               borderRadius: 5,
               px: 4,
               fontSize: 18,
               boxShadow: 2,
-              "&:hover": { background: "#e3f0ff" },
+              "&:hover": { background: "#ffe066" },
             }}
           >
             Tham Gia Ngay
@@ -122,7 +127,7 @@ const Home = () => {
               variant="h3"
               fontWeight="bold"
               mb={2}
-              sx={{ color: "#1976d2", fontSize: { xs: 32, md: 40 } }}
+              sx={{ color: "#1a237e", fontSize: { xs: 32, md: 40 } }}
             >
               Về Chúng Tôi
             </Typography>

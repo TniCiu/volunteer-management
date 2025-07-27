@@ -13,15 +13,18 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 
-const PRIMARY_BLUE = "#1976d2";
+
+const PRIMARY_BLUE = "#1a237e";
 
 const CustomAppBar = ({
   title = "Tình Nguyện Viên",
   slogan = "Lan tỏa yêu thương – Kết nối cộng đồng",
+  onActivityClick,
 }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const navigate = useNavigate();
+
 
   return (
     <AppBar
@@ -32,7 +35,7 @@ const CustomAppBar = ({
         px: { xs: 1, md: 4 },
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between", minHeight: 64 }}>
+      <Toolbar sx={{ justifyContent: "space-between", minHeight: 100 }}>
         {/* Logo + Tên tổ chức */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Box>
@@ -57,7 +60,6 @@ const CustomAppBar = ({
             )}
           </Box>
         </Box>
-        {/* Menu + Search + Login */}
         <Box
           sx={{
             display: "flex",
@@ -68,14 +70,29 @@ const CustomAppBar = ({
         >
           {!isMobile && (
             <>
-              <Button color="inherit" sx={{ fontWeight: 500 }}>
+              <Button href='/' color="inherit" sx={{ fontWeight: 500 }}>
                 Trang chủ
               </Button>
-              <Button color="inherit" sx={{ fontWeight: 500 }}>
+                            <Button 
+                color="inherit" 
+                sx={{ fontWeight: 500 }}
+                onClick={onActivityClick || (() => navigate("/hoat-dong"))}
+              >
                 Hoạt động
               </Button>
-              <Button color="inherit" sx={{ fontWeight: 500 }}>
+              <Button 
+                color="inherit" 
+                sx={{ fontWeight: 500 }}
+                onClick={() => navigate("/quyen-gop")}
+              >
                 Quyên góp
+              </Button>
+              <Button 
+                color="inherit" 
+                sx={{ fontWeight: 500 }}
+                onClick={() => navigate("/dang-ky-tinh-nguyen-vien")}
+              >
+                Đăng ký TNV
               </Button>
             </>
           )}
@@ -108,7 +125,7 @@ const CustomAppBar = ({
             variant="contained"
             sx={{
               background: "#ffd700",
-              color: PRIMARY_BLUE,
+              color: "#1a237e",
               fontWeight: "bold",
               borderRadius: 5,
               px: 3,
